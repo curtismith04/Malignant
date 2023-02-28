@@ -75,6 +75,10 @@ public:
 	UPROPERTY(EditAnywhere)
 		UComboAttackComponent* AttackComponent;
 
+
+	
+		
+
 	/* methods */
 protected:
 
