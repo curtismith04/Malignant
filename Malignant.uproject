@@ -70,19 +70,6 @@
 		{
 			"Name": "Soundscape",
 			"Enabled": true
-		},
-		{
-			"Name": "VisualStudioTools",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/362651520df94e4fa65492dbcba44ae2",
-			"SupportedTargetPlatforms": [
-				"Win64"
-			]
-		},
-		{
-			"Name": "DataTableFunctionLibraryLite",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/677c8e4b8a094c898a1ebf0d0d40fe56"
 		}
 	]
 }

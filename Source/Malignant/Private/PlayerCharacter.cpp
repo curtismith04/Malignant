@@ -4,6 +4,7 @@
 #include "PlayerCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "Blueprint/UserWidget.h"
+#include "ItemPickupBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
@@ -23,6 +24,15 @@ APlayerCharacter::APlayerCharacter()
 
 	GetCharacterMovement()->SetUpdatedComponent(RootComponent);
 	bUseControllerRotationYaw = true;
+
+}
+
+//Default Implementation if not overridden in Blueprints
+void APlayerCharacter::EquipItem_Implementation(AItemPickupBase* NewItem)
+{
+	EquippedItem = NewItem;
+	FAttachmentTransformRules AttachRules{ EAttachmentRule::SnapToTarget, EAttachmentRule::KeepRelative, EAttachmentRule::KeepRelative, false };
+	NewItem->AttachToComponent(MainCamera, AttachRules);
 
 }
 
@@ -104,6 +114,7 @@ void APlayerCharacter::LookUp(float AxisValue)
 	NewRotation.Pitch = FMath::Clamp(NewRotation.Pitch + AxisValue, -89.0, 89.0);
 	MainCamera->SetRelativeRotation(NewRotation);
 
+	OnCameraLookUp.Broadcast(AxisValue);
 }
 
 void APlayerCharacter::LookRight(float AxisValue)
